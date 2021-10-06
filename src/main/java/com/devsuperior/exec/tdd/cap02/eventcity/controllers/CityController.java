@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.devsuperior.exec.tdd.cap02.eventcity.dto.CityDTO;
@@ -23,4 +25,10 @@ public class CityController {
 		List<CityDTO> cityDTOs = cityService.findAll();
 		return ResponseEntity.ok().body(cityDTOs);
 	}	
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
+		cityService.delete(id);
+		return ResponseEntity.noContent().build();
+	}
 }

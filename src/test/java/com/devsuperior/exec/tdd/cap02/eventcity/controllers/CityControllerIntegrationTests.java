@@ -42,6 +42,6 @@ public class CityControllerIntegrationTests {
 		resultActions.andExpect(status().isOk());
 		resultActions.andExpect(jsonPath("$[0].name").value("Belo Horizonte"));
 		resultActions.andExpect(jsonPath("$[1].name").value("Belém"));
-		resultActions.andExpect(jsonPath("$[2].name").value("Brasilia"));
+		resultActions.andExpect(jsonPath("$[2].name").value("Brasília"));
 	}
 }
